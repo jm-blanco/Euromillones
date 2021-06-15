@@ -5,4 +5,38 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"/>
+        tools:context=".MainActivity">
+    <Button
+            android:text="@string/euromillones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/bt_main"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="32dp"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" android:textStyle="bold"
+            android:textSize="18sp" android:backgroundTint="#F02828" android:textColor="#FFFFFF"/>
+    <TextView
+            android:text="@string/jmblanco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tv_main"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold" android:textColor="#000000" android:textSize="12sp"/>
+    <TextView
+            android:text="@string/v_1_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tv_mainV"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="12sp" android:textStyle="bold" android:textColor="#000000"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bt_main" app:layout_constraintEnd_toEndOf="@+id/bt_main"
+            app:layout_constraintStart_toStartOf="@+id/bt_main" android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" app:srcCompat="@drawable/logo_euro" android:id="@+id/iv_mainLogo"
+                android:contentDescription="logo main"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
