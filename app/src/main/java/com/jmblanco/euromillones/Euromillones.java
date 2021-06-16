@@ -49,24 +49,23 @@ public class Euromillones extends AppCompatActivity {
         TextView tv_bote = findViewById(R.id.tv_bote);
         Bundle bundle2 = getIntent().getExtras();
         if (bundle2 != null) {
-            String[] numbers2 = bundle2.getStringArray("numeros");
-            if (numbers2 != null) {
-                tv_b1.setText(numbers2[0]);
-                tv_b2.setText(numbers2[1]);
-                tv_b3.setText(numbers2[2]);
-                tv_b4.setText(numbers2[3]);
-                tv_b5.setText(numbers2[4]);
-                tv_e1.setText(numbers2[5]);
-                tv_e2.setText(numbers2[6]);
+            numbers = bundle2.getStringArray("numeros");
+            if (numbers != null) {
+                tv_b1.setText(numbers[0]);
+                tv_b2.setText(numbers[1]);
+                tv_b3.setText(numbers[2]);
+                tv_b4.setText(numbers[3]);
+                tv_b5.setText(numbers[4]);
+                tv_e1.setText(numbers[5]);
+                tv_e2.setText(numbers[6]);
                 StringBuilder sb = new StringBuilder();
                 String str = web2;
                 sb.append("EL MILLÓN: ");
                 bundle = bundle2;
-                sb.append(numbers2[7].substring(9));
+                sb.append(numbers[7].substring(9));
                 tv_mill.setText(sb.toString());
-                tv_bote.setText("BOTE: " + numbers2[8] + " MILLONES");
+                tv_bote.setText("BOTE: " + numbers[8] + " MILLONES");
             } else {
-                bundle = bundle2;
                 tv_b1.setText("0");
                 tv_b2.setText("0");
                 tv_b3.setText("0");
@@ -77,9 +76,7 @@ public class Euromillones extends AppCompatActivity {
                 tv_mill.setText("EL MILLÓN: 0");
                 tv_bote.setText("BOTE: 0 MILLONES");
             }
-            numbers = numbers2;
         } else {
-            bundle = bundle2;
             numbers = null;
         }
 
@@ -93,60 +90,21 @@ public class Euromillones extends AppCompatActivity {
 
         final String[] finalNumbers2 = numbers;
         Bundle bun2   = bun;
-        Bundle bundle3 = bundle;
-        TextView textView = tv_bote;
-        TextView tv_bote2 = tv_b1;
-        TextView textView2 = tv_mill;
-        TextView tv_mill2 = tv_b2;
-        TextView tv_e22 = tv_e2;
-        TextView tv_e23 = tv_b3;
-        TextView tv_e12 = tv_e1;
-        TextView tv_e13 = tv_b4;
-        TextView tv_b52 = tv_b5;
-        TextView tv_b42 = tv_b4;
-        TextView tv_b43 = tv_e12;
-        TextView tv_b32 = tv_b3;
-        TextView tv_b33 = tv_e22;
 
         Button btqr = findViewById(R.id.bt_qr);
         btqr.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Euromillones.this.checkPermiso("android.permission.CAMERA", 100);
                 Euromillones.this.startActivityForResult(new Intent(v.getContext(), Scanner.class), 0);
-                tv_bote2.setText(finalNumbers2[0]);
-                tv_mill2.setText(finalNumbers2[1]);
-                tv_e23.setText(finalNumbers2[2]);
-                tv_e13.setText(finalNumbers2[3]);
-                tv_b5.setText(finalNumbers2[4]);
-                tv_b43.setText(finalNumbers2[5]);
-                tv_b33.setText(finalNumbers2[6]);
+                reinicio(numbers);
             }
         });
-        final String[] finalNumbers1 = numbers;
-        final TextView textView3 = tv_b1;
-        final TextView textView4 = tv_b2;
-        final TextView textView5 = tv_b32;
-        TextView tv_b22 = tv_b2;
-        final TextView tv_b23 = tv_b42;
-        TextView tv_b12 = tv_b1;
-        final TextView tv_b13 = tv_b52;
-        WebView webView2 = webView;
-        final TextView textView6 = tv_e12;
-        Button button2 = btqr;
-        Bundle bundle4 = bun2;
-        final TextView textView7 = tv_e22;
 
         Button bt_ant = findViewById(R.id.bt_ant);
         bt_ant.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Euromillones.this.startActivityForResult(new Intent(v.getContext(), Fecha.class), 0);
-                textView3.setText(finalNumbers1[0]);
-                textView4.setText(finalNumbers1[1]);
-                textView5.setText(finalNumbers1[2]);
-                tv_b23.setText(finalNumbers1[3]);
-                tv_b13.setText(finalNumbers1[4]);
-                textView6.setText(finalNumbers1[5]);
-                textView7.setText(finalNumbers1[6]);
+                reinicio(numbers);
             }
         });
 
@@ -158,14 +116,6 @@ public class Euromillones extends AppCompatActivity {
             }
         });
 
-        final String[] finalNumbers = numbers;
-        final TextView textView8 = tv_b12;
-        final TextView textView9 = tv_b22;
-        final TextView textView10 = tv_b32;
-        final TextView textView11 = tv_b42;
-        final TextView textView12 = tv_b52;
-        final TextView textView13 = tv_e12;
-        final TextView textView14 = tv_e22;
         ImageView iv_hide = findViewById(R.id.iv_eur);
         iv_hide.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -173,13 +123,7 @@ public class Euromillones extends AppCompatActivity {
                 if (Euromillones.this.t == 10) {
                     Euromillones.this.t = 0;
                     Euromillones.this.startActivityForResult(new Intent(v.getContext(), Oculto.class), 0);
-                    textView8.setText(finalNumbers[0]);
-                    textView9.setText(finalNumbers[1]);
-                    textView10.setText(finalNumbers[2]);
-                    textView11.setText(finalNumbers[3]);
-                    textView12.setText(finalNumbers[4]);
-                    textView13.setText(finalNumbers[5]);
-                    textView14.setText(finalNumbers[6]);
+                    reinicio(numbers);
                 }
             }
         });
@@ -217,4 +161,24 @@ public class Euromillones extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_b4)).setText(ob[3] + "");
         ((TextView) findViewById(R.id.tv_b5)).setText(ob[4] + "");
     }
+
+    public void reinicio(String[] numbers2){
+        TextView tv_b1   = findViewById(R.id.tv_b1);
+        TextView tv_b2   = findViewById(R.id.tv_b2);
+        TextView tv_b3   = findViewById(R.id.tv_b3);
+        TextView tv_b4   = findViewById(R.id.tv_b4);
+        TextView tv_b5   = findViewById(R.id.tv_b5);
+        TextView tv_e1   = findViewById(R.id.tv_e1);
+        TextView tv_e2   = findViewById(R.id.tv_e2);
+        TextView tv_mill = findViewById(R.id.tv_mill);
+        TextView tv_bote = findViewById(R.id.tv_bote);
+        tv_b1.setText(numbers2[0]);
+        tv_b2.setText(numbers2[1]);
+        tv_b3.setText(numbers2[2]);
+        tv_b4.setText(numbers2[3]);
+        tv_b5.setText(numbers2[4]);
+        tv_e1.setText(numbers2[5]);
+        tv_e2.setText(numbers2[6]);
+    }
+
 }

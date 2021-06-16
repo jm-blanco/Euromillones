@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         public void onPostExecute(String[] result) {
-            super.onPostExecute(result);
+            onPostExecute(result);
         }
     }
 }
