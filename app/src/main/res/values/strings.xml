@@ -6,4 +6,13 @@
     <string name="euromillones">EUROMILLONES</string>
     <string name="v_1_0">V-1.0</string>
     <string name="jmblanco">jmblanco</string>
+    <string name="_0">0</string>
+    <string name="bote">BOTE</string>
+    <string name="el_mill_n">EL MILLÓN</string>
+    <string name="generar_resultado">GENERAR RESULTADO</string>
+    <string name="comprobar_resultados">COMPROBAR RESULTADOS</string>
+    <string name="sorteos_anteriores">SORTEOS ANTERIORES</string>
+    <string name="salir">SALIR</string>
+    <string name="estad_sticas">ESTADÍSTICAS</string>
+    <string name="estad_sticas">ESTADÍSTICAS</string>
 </resources>

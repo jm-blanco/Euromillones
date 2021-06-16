@@ -29,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestPermissions(new String[]{"android.permission.CAMERA"}, 123);
+
+
         Button bt_main = findViewById(R.id.bt_main);
         bt_main.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                Intent intent = new Intent(v.getContext(), Euromillones.class);
                 if (vueltas == 0) {
                     try {
                         numeros = new UltimoSorteo().execute().get();
