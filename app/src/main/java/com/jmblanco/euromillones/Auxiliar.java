@@ -105,58 +105,34 @@ public class Auxiliar extends AppCompatActivity {
     }
 
     private class JsonTask extends AsyncTask<String, String, JSONObject> {
+        @Override
         public JSONObject doInBackground(String... params) {
-            HttpURLConnection connection = null;
-            BufferedReader reader = null;
+            HttpURLConnection connection;
+            BufferedReader reader;
+            JSONObject jSONObject = null;
             try {
-                HttpURLConnection connection2 = (HttpURLConnection) new URL(params[0]).openConnection();
-                connection2.connect();
-                BufferedReader reader2 = new BufferedReader(new InputStreamReader(connection2.getInputStream()));
+                connection = (HttpURLConnection) new URL(params[0]).openConnection();
+                connection.connect();
+                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 StringBuffer buffer = new StringBuffer();
                 while (true) {
-                    String line = reader2.readLine();
+                    String line = reader.readLine();
                     if (line == null) {
                         break;
                     }
                     buffer.append(line);
                     buffer.append("\n");
                 }
-                JSONObject jSONObject = new JSONObject(buffer.toString());
-                if (connection2 != null) {
-                    connection2.disconnect();
-                }
-                try {
-                    reader2.close();
-                } catch (IOException e) {
-                }
-                return jSONObject;
-            } catch (IOException | JSONException e2) {
-                if (0 != 0) {
-                    connection.disconnect();
-                }
-                if (0 == 0) {
-                    return null;
-                }
-                try {
-                    reader.close();
-                    return null;
-                } catch (IOException e3) {
-                    return null;
-                }
-            } catch (Throwable th) {
-                if (0 != 0) {
-                    connection.disconnect();
-                }
-                if (0 != 0) {
-                    try {
-                        reader.close();
-                    } catch (IOException e4) {
-                    }
-                }
-                throw th;
-            }
-        }
+                jSONObject = new JSONObject(buffer.toString());
+                connection.disconnect();
+                reader.close();
 
+            } catch (IOException | JSONException e2) {
+                System.out.println(e2.getMessage());
+            }
+            return jSONObject;
+        }
+        @Override
         public void onPostExecute(JSONObject result) {
             super.onPostExecute(result);
         }

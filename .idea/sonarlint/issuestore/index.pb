@@ -24,9 +24,5 @@ L
 .idea/codeStyles/Project.xml,6\e\6ecd6000a7b6f4a2884412ff19f74193ed089648
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-i
-9app/src/main/java/com/jmblanco/euromillones/Auxiliar.java,8\c\8cdd914d4c080cce71daf62e6c6877a657177acd

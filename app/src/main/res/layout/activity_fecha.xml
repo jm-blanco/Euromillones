@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:background="#E9EFEF" android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+>
+    <Button android:textSize="24sp" android:textStyle="bold" android:id="@+id/bo_vol_fecha" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_marginBottom="30dp" android:text="@string/volver"
+            android:backgroundTint="#ffff8d"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" android:textColor="#000000"/>
+    <CalendarView android:id="@+id/cal_v" android:background="#ffffff" android:layout_width="0dp"
+                  android:layout_height="wrap_content" android:layout_marginBottom="30dp"
+                  app:layout_constraintBottom_toTopOf="@+id/bo_vol_fecha" app:layout_constraintEnd_toEndOf="@+id/bo_vol_fecha"
+                  app:layout_constraintStart_toStartOf="@+id/bo_vol_fecha" android:showWeekNumber="false"
+    />
+    <TextView android:textSize="24sp" android:textStyle="bold" android:textColor="#000000" android:id="@+id/tv_res_fecha"
+              android:background="#ffffff" android:layout_width="0dp" android:layout_height="wrap_content"
+              app:layout_constraintBottom_toTopOf="@+id/cal_v" app:layout_constraintEnd_toEndOf="@+id/cal_v"
+              app:layout_constraintStart_toStartOf="@+id/cal_v" android:layout_marginBottom="100dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,5 +14,13 @@
     <string name="sorteos_anteriores">SORTEOS ANTERIORES</string>
     <string name="salir">SALIR</string>
     <string name="estad_sticas">ESTADÍSTICAS</string>
-    <string name="estad_sticas">ESTADÍSTICAS</string>
+    <string name="insert">insert</string>
+    <string name="enviar">ENVIAR</string>
+    <string name="n_meros">números</string>
+    <string name="delete">delete</string>
+    <string name="password">password</string>
+    <string name="estrellas">estrellas</string>
+    <string name="volver">VOLVER</string>
+    <string name="yyyy_mm_dd">yyyy-mm-dd</string>
+    <string name="secret">******</string>
 </resources>
